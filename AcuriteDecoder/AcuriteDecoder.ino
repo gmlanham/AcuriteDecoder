@@ -1,4 +1,4 @@
-/*The purpose of this sketch is to receive and decode 433mhz data sent by Acurite 3-in-1 Weather sensor. 
+/*No libraries used, all functionality coded in the sketch. The purpose of this sketch is to receive and decode 433mhz data sent by Acurite 3-in-1 Weather sensor. 
  * A 433mhz reciever and an Arduino compatible microprocessor are required. 
 */
 //433mhz receiver variables
