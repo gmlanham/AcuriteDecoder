@@ -2,8 +2,8 @@
 #include <Arduino.h>
 
 //433mhz receiver variables
-int dataInputPin = 10; // from 433 receiver, change pin as required for microprocessor.
-int channelCode = 3619; //Acurite unit identifier
+//int dataInputPin = 10; // from 433 receiver, change pin as required for microprocessor.
+//int channelCode = 3619; //Acurite unit identifier
 byte ar[76]; //array to save the input RF pulse stream, pulse width of low; either 0 or 1 depending on width.
 byte pos=0; //position index in ar[], data array
 
@@ -26,14 +26,14 @@ String AcuriteDecoder::roundNumber(float x){
 
 //decode Acurite 433mhz radio signal, packet sent every 18 seconds.
 //pulse width modulation- wide pulse = 0 or narrow pulse = 1.
-weatherStruct AcuriteDecoder::getWeather(int dataInputPin, int channelcode) {
-	//Weather variables
-	double realtemp; double realtempF;                                  
-	unsigned char hum;
-	double windspeed=0;
-	String rtfTrim;
-	String rtTrim;
-	String wsTrim; //windspeed string
+weatherStruct AcuriteDecoder::getWeather(int dataInputPin, int channelCode) {
+  //Weather variables
+  double realtemp; double realtempF;                                  
+  unsigned char hum;
+  double windspeed=0;
+  String rtfTrim;
+  String rtTrim;
+  String wsTrim; //windspeed string
   String concatHTW= "";
   b: pos=0;
   unsigned long dur; //pulse duration, width
@@ -65,7 +65,7 @@ weatherStruct AcuriteDecoder::getWeather(int dataInputPin, int channelcode) {
     }
     Serial.print(" ChannelCode: "); Serial.print(cc);Serial.println("");
     
-  if (cc==3619) //print data for valid channel code, old value was 3619
+  if (cc==channelCode) //print data for valid channel code, old value was 3619
     {
       int hum5=0; for (int i=0; i <= 6; i++) {hum5=hum5 << 1; hum5=hum5+ar[25+i]; }
       hum=hum5;
