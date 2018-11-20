@@ -1,2 +1,2 @@
 # AcuriteDecoder
-Receive Acurite 433MHz, radio signal decode to digitial weather data.
+Receive Acurite 433MHz, radio signal decode to digital weather data.
