@@ -18,7 +18,7 @@ void setup() {
 }
 
 void loop() {
-  AD.getWeather(10,3619);  //dataInputPin, Arduino Uno, pin 10
+  AD.getWeather(10,3619);  //dataInputPin, Arduino Uno, pin 10, channelCode=3619
   Serial.println(AD.weather.temperature);
   Serial.println(AD.weather.wind);
   Serial.println(AD.weather.humidity);      
